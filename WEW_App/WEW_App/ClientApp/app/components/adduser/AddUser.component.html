@@ -23,6 +23,15 @@
         </span>
     </div>
     <div class="form-group row">
+        <label class=" control-label col-md-12">Mail</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="mail">
+        </div>
+        <span class="text-danger" *ngIf="mail.invalid && formDir.submitted">
+            Mail is required.
+        </span>
+    </div>
+    <div class="form-group row">
         <label class="control-label col-md-12" for="Gender">Geschlecht</label>
         <div class="col-md-4">
             <select class="form-control" data-val="true" formControlName="gender">

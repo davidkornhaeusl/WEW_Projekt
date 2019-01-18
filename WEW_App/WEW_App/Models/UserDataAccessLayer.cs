@@ -24,6 +24,7 @@ namespace UserAdminApp.Models
                     cmd.Parameters.AddWithValue("@GENDER", user.Gender);
                     cmd.Parameters.AddWithValue("@CITY", user.City);
                     cmd.Parameters.AddWithValue("@AGE", user.Age);
+                    cmd.Parameters.AddWithValue("@MAIL", user.Mail);
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
@@ -56,6 +57,7 @@ namespace UserAdminApp.Models
                         user.Gender = rdr["GENDER"].ToString();
                         user.City = rdr["CITY"].ToString();
                         user.Age = Convert.ToInt32(rdr["AGE"]);
+                        user.Mail = rdr["MAIL"].ToString();
                         lstuser.Add(user);
                     }
                     con.Close();
@@ -82,6 +84,7 @@ namespace UserAdminApp.Models
                     cmd.Parameters.AddWithValue("@GENDER", user.Gender);
                     cmd.Parameters.AddWithValue("@CITY", user.City);
                     cmd.Parameters.AddWithValue("@AGE", user.Age);
+                    cmd.Parameters.AddWithValue("@MAIL", user.Mail);
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
@@ -113,6 +116,7 @@ namespace UserAdminApp.Models
                         user.Gender = rdr["GENDER"].ToString();
                         user.City = rdr["CITY"].ToString();
                         user.Age = Convert.ToInt32(rdr["AGE"]);
+                        user.Mail = rdr["MAIL"].ToString();
                     }
                 }
                 return user;

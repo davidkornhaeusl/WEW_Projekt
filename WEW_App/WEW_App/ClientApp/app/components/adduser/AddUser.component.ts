@@ -30,7 +30,8 @@ export class createuser implements OnInit {
             lastname: ['', [Validators.required]],
             gender: ['', [Validators.required]],
             age: ['', [Validators.required]],
-            city: ['', [Validators.required]]
+            city: ['', [Validators.required]],
+            mail: ['', [Validators.required]]
         })
     }
 
@@ -73,4 +74,5 @@ export class createuser implements OnInit {
     get gender() { return this.userForm.get('gender'); }
     get age() { return this.userForm.get('age'); }
     get city() { return this.userForm.get('city'); }
+    get mail() { return this.userForm.get('mail'); }
 }
