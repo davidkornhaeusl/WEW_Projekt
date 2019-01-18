@@ -30,6 +30,7 @@
                 <td>
                     <a [routerLink]="['/user/edit/', user.id]">Bearbeiten</a> |
                     <a [routerLink]="" (click)="delete(user.id)">Löschen</a>
+                    <a [routerLink]="" (click)="send(user.mail)">Sende Mail</a>
                 </td>
             </tr>
         </tbody>

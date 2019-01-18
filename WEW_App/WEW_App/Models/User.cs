@@ -14,6 +14,15 @@ namespace UserAdminApp.Models
         private string _City;
         private int _Age;
 
+        private string _Mail;
+
+        public string Mail
+        {
+            get { return _Mail; }
+            set { _Mail = value; }
+        }
+
+
         public int Id
         {
             get { return _Id; }

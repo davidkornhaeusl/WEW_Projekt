@@ -43,6 +43,12 @@ export class UserService {
             .map((response: Response) => response.json())
             .catch(this.errorHandler);
     }
+   
+    sendMail(mail) {
+    return this._http.get(this.myAppUrl + "api/User/Send/" + mail)
+            .map((response: Response) => response.json())
+            .catch(this.errorHandler);
+    }
 
     errorHandler(error: Response) {
         console.log(error);

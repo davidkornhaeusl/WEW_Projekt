@@ -23,11 +23,20 @@ export class FetchUserComponent {
     }
 
     delete(userID) {
-        var ans = confirm("Do you want to delete customer with Id: " + userID);
+        var ans = confirm("Do you want to delete user with Id: " + userID);
         if (ans) {
             this._userService.deleteUser(userID).subscribe((data) => {
                 this.getUser();
             }, error => console.error(error)) 
+        }
+    }
+
+    send(mail) {
+        var ans = confirm("Do you want to send mail to: " + mail);
+        if (ans) {
+            this._userService.sendMail(mail).subscribe((data) => {
+                alert('OK');
+            }, error => console.error(error))
         }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace UserAdminApp.Models
@@ -143,6 +145,34 @@ namespace UserAdminApp.Models
                 return 1;
             }
             catch
+            {
+                throw;
+            }
+        }
+
+        public string SendMail(string mail)
+        {
+            try
+            {
+                
+                SmtpClient client = new SmtpClient();
+                client.Port = 587;
+                client.Host = "smtp.gmail.com";
+                client.EnableSsl = true;
+                client.Timeout = 10000;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+                client.Credentials = new System.Net.NetworkCredential("req.gruppe1@gmail.com", "requirement");
+
+                MailMessage mm = new MailMessage("req.gruppe1@gmail.com", mail, "test", "test");
+                mm.BodyEncoding = UTF8Encoding.UTF8;
+                mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+
+                client.Send(mm);
+
+                return "OK";
+            }
+            catch (Exception ex)
             {
                 throw;
             }

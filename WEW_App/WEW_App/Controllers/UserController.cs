@@ -28,6 +28,13 @@ namespace UserAdminApp.Controllers
         }
 
         [HttpGet]
+        [Route("api/User/Send/{mail}")]
+        public String SendMail (string mail)
+        {
+            return objUser.SendMail(mail);
+        }
+
+        [HttpGet]
         [Route("api/User/Details/{id}")]
         public User Details(int id)
         {
