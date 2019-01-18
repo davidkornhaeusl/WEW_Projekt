@@ -61,7 +61,7 @@ namespace UserAdminApp.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Data Source=.\MUR;Initial Catalog=WEW_User_Management;User id=admin;Password=admin; ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Data Source=.\SQLEXPRESS;Initial Catalog=WEW_User_Management;User id=admin;Password=admin; ähnelt.
         /// </summary>
         internal static string ConString {
             get {
