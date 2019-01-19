@@ -1,5 +1,5 @@
 ﻿<h1>Userdaten</h1>
-<p *ngIf="!userList"><em>Loading...</em></p>
+<p *ngIf="!userList"><em>Liste wird geladen...</em></p>
 <p>
     <a [routerLink]="['/register-user']">Neuen User erstellen:</a>
 </p>
@@ -9,11 +9,11 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Gender</th>
-                <th>Age</th>
-                <th>City</th>
+                <th>Vorname</th>
+                <th>Nachname</th>
+                <th>Geschl&auml;cht</th>
+                <th>Alter</th>
+                <th>Wohnort</th>
                 <th>Mail</th>
             </tr>
         </thead>

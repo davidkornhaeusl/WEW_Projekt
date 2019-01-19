@@ -24,8 +24,7 @@ export default createServerRenderer(params => {
         return new Promise<RenderResult>((resolve, reject) => {
             zone.onError.subscribe((errorInfo: any) => reject(errorInfo));
             appRef.isStable.first(isStable => isStable).subscribe(() => {
-                // Because 'onStable' fires before 'onError', we have to delay slightly before
-                // completing the request in case there's an error to report
+            
                 setImmediate(() => {
                     resolve({
                         html: state.renderToString()

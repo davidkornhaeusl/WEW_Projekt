@@ -8,44 +8,44 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class UserService {
-    myAppUrl: string = "";
+    _baseUrl: string = "";
 
     constructor(private _http: Http, @Inject('BASE_URL') baseUrl: string) {
-        this.myAppUrl = baseUrl;
+        this._baseUrl = baseUrl;
     }
 
     getUser() {
-        return this._http.get(this.myAppUrl + 'api/User/Index')
+        return this._http.get(this._baseUrl + 'api/User/Index')
             .map((response: Response) => response.json())
             .catch(this.errorHandler);
     }
 
     getUserById(id: number) {
-        return this._http.get(this.myAppUrl + "api/User/Details/" + id)
+        return this._http.get(this._baseUrl + "api/User/Details/" + id)
             .map((response: Response) => response.json())
             .catch(this.errorHandler)
     }
 
     saveUser(User) {
-        return this._http.post(this.myAppUrl + 'api/User/Create', User)
+        return this._http.post(this._baseUrl + 'api/User/Create', User)
             .map((response: Response) => response.json())
             .catch(this.errorHandler)
     }
 
     updateUser(User) {
-        return this._http.put(this.myAppUrl + 'api/User/Edit', User)
+        return this._http.put(this._baseUrl + 'api/User/Edit', User)
             .map((response: Response) => response.json())
             .catch(this.errorHandler);
     }
 
     deleteUser(id) {
-        return this._http.delete(this.myAppUrl + "api/User/Delete/" + id)
+        return this._http.delete(this._baseUrl + "api/User/Delete/" + id)
             .map((response: Response) => response.json())
             .catch(this.errorHandler);
     }
    
     sendMail(mail) {
-    return this._http.get(this.myAppUrl + "api/User/Send/" + mail)
+        return this._http.get(this._baseUrl + "api/User/Send/" + mail)
             .map((response: Response) => response.json())
             .catch(this.errorHandler);
     }

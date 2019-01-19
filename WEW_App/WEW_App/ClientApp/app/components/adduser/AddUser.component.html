@@ -1,4 +1,3 @@
-
 <h1>{{title}}</h1>
 <h3>User</h3>
 <hr />
@@ -10,7 +9,7 @@
             <input class="form-control" type="text" formControlName="firstname">
         </div>
         <span class="text-danger" *ngIf="firstname.invalid && formDir.submitted">
-            Firstname is required.
+            Vorname ist erforderlich.
         </span>
     </div>
     <div class="form-group row">
@@ -19,7 +18,7 @@
             <input class="form-control" type="text" formControlName="lastname">
         </div>
         <span class="text-danger" *ngIf="lastname.invalid && formDir.submitted">
-            Lastname is required.
+            Nachnahme ist erforderlich.
         </span>
     </div>
     <div class="form-group row">
@@ -28,20 +27,20 @@
             <input class="form-control" type="text" formControlName="mail">
         </div>
         <span class="text-danger" *ngIf="mail.invalid && formDir.submitted">
-            Mail is required.
+            Mail ist erforderlich.
         </span>
     </div>
     <div class="form-group row">
         <label class="control-label col-md-12" for="Gender">Geschlecht</label>
         <div class="col-md-4">
             <select class="form-control" data-val="true" formControlName="gender">
-                <option value="">-- Geschlecht Wählen --</option>
+                <option value="">-- Geschlecht W&auml;hlen --</option>
                 <option value="Male">Frau</option>
                 <option value="Female">Mann</option>
             </select>
         </div>
         <span class="text-danger" *ngIf="gender.invalid && formDir.submitted">
-            Gender is required
+            Geschlecht ist erforderlich.
         </span>
     </div>
     <div class="form-group row">
@@ -50,7 +49,7 @@
             <input class="form-control" type="number" formControlName="age">
         </div>
         <span class="text-danger" *ngIf="age.invalid && formDir.submitted">
-            Age is required
+            Alter ist erforderlich.
         </span>
     </div>
     <div class="form-group row">
@@ -59,7 +58,7 @@
             <input class="form-control" type="text" formControlName="city">
         </div>
         <span class="text-danger" *ngIf="city.invalid && formDir.submitted">
-            City is required
+            Wohnort ist erforderlich.
         </span>
     </div>
     <div class="form-group">

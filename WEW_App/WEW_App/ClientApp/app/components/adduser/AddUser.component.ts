@@ -1,8 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { Http, Headers } from '@angular/http';
 import { NgForm, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FetchUserComponent } from '../fetchuser/fetchuser.component';
 import { UserService } from '../../services/userservice.service';
 
 @Component({
@@ -13,18 +11,18 @@ import { UserService } from '../../services/userservice.service';
 
 export class createuser implements OnInit {
     userForm: FormGroup;
-    title: string = "Create";
+    editType: string = "Create";
+    title: string = "User Erstellen";
     id: number;
     errorMessage: any;
-    
 
-    constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute,
-        private _userService: UserService, private _router: Router) {
-        if (this._avRoute.snapshot.params["id"]) {
-            this.id = this._avRoute.snapshot.params["id"];
+
+    constructor(private _formBuilder: FormBuilder, private _activeRoute: ActivatedRoute,private _userService: UserService, private _router: Router) {
+        if (this._activeRoute.snapshot.params["id"]) {
+            this.id = this._activeRoute.snapshot.params["id"];
         }
 
-        this.userForm = this._fb.group({
+        this.userForm = this._formBuilder.group({
             id: 0,
             firstname: ['', [Validators.required]],
             lastname: ['', [Validators.required]],
@@ -37,10 +35,11 @@ export class createuser implements OnInit {
 
     ngOnInit() {
         if (this.id > 0) {
-            this.title = "Edit";
+            this.editType = "Edit";
+            this.title = "User Bearbeiten";
             this._userService.getUserById(this.id)
                 .subscribe(resp => this.userForm.setValue(resp)
-                , error => this.errorMessage = error);
+                    , error => this.errorMessage = error);
         }
     }
 
@@ -50,17 +49,17 @@ export class createuser implements OnInit {
             return;
         }
 
-        if (this.title == "Create") {
+        if (this.editType == "Create") {
             this._userService.saveUser(this.userForm.value)
                 .subscribe((data) => {
                     this._router.navigate(['/fetch-user']);
                 }, error => this.errorMessage = error)
         }
-        else if (this.title == "Edit") {
+        else if (this.editType == "Edit") {
             this._userService.updateUser(this.userForm.value)
                 .subscribe((data) => {
                     this._router.navigate(['/fetch-user']);
-                }, error => this.errorMessage = error) 
+                }, error => this.errorMessage = error)
         }
     }
 

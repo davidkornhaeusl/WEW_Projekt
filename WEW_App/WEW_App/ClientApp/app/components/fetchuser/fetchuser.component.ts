@@ -1,6 +1,5 @@
-﻿import { Component, Inject } from '@angular/core';
-import { Http, Headers } from '@angular/http';
-import { Router, ActivatedRoute } from '@angular/router';
+﻿import { Component } from '@angular/core';
+import { Http } from '@angular/http';
 import { UserService } from '../../services/userservice.service'
 
 @Component({
@@ -12,7 +11,7 @@ import { UserService } from '../../services/userservice.service'
 export class FetchUserComponent {
     public userList: UserData[];
 
-    constructor(public http: Http, private _router: Router, private _userService: UserService) {
+    constructor(public http: Http, private _userService: UserService) {
         this.getUser();
     }
 
@@ -23,7 +22,7 @@ export class FetchUserComponent {
     }
 
     delete(userID) {
-        var ans = confirm("Do you want to delete user with Id: " + userID);
+        var ans = confirm("Benutzer mit der Id: " + userID +" löschen");
         if (ans) {
             this._userService.deleteUser(userID).subscribe((data) => {
                 this.getUser();
@@ -32,7 +31,7 @@ export class FetchUserComponent {
     }
 
     send(mail) {
-        var ans = confirm("Do you want to send mail to: " + mail);
+        var ans = confirm("Email senden an: " + mail);
         if (ans) {
             this._userService.sendMail(mail).subscribe((data) => {
                 alert('OK');
