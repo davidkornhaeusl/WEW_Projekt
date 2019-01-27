@@ -1,0 +1,48 @@
+<h1>{{title}}</h1>
+<h3>Fahrzeug</h3>
+<hr />
+
+<form [formGroup]="carForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+    <div class="form-group row">
+        <label class=" control-label col-md-12">Marke</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="brand">
+        </div>
+        <span class="text-danger" *ngIf="brand.invalid && formDir.submitted">
+            Marke ist erforderlich.
+        </span>
+    </div>
+    <div class="form-group row">
+        <label class=" control-label col-md-12">Modell</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="type">
+        </div>
+        <span class="text-danger" *ngIf="type.invalid && formDir.submitted">
+            Modell ist erforderlich.
+        </span>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="year">Baujahr</label>
+        <div class="col-md-4">
+            <input class="form-control" type="number" formControlName="year">
+        </div>
+        <span class="text-danger" *ngIf="year.invalid && formDir.submitted">
+            Baujahr ist erforderlich.
+        </span>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="plate">Nummernschild</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="plate">
+        </div>
+        <span class="text-danger" *ngIf="plate.invalid && formDir.submitted">
+            Nummernschild ist erforderlich.
+        </span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">Speichern</button>
+        <button class="btn" (click)="cancel()">Abbrechen</button>
+    </div>
+</form>
+
+<div id="map" class="map"></div>

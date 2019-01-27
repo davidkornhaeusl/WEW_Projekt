@@ -7,8 +7,11 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
-import { FetchUserComponent } from './components/fetchuser/fetchuser.component'
-import { createuser } from './components/adduser/AddUser.component'
+import { FetchUserComponent } from './components/fetchuser/fetchuser.component';
+import { createuser } from './components/adduser/AddUser.component';
+import { FetchCarComponent } from './components/fetchcar/fetchcar.component';
+import { createcar } from './components/addcar/AddCar.component';
+import { CarService } from './Services/carservice.service';
 
 @NgModule({
     declarations: [
@@ -17,6 +20,8 @@ import { createuser } from './components/adduser/AddUser.component'
         HomeComponent,
         FetchUserComponent,
         createuser,
+        FetchCarComponent,
+        createcar,
     ],
     imports: [
         CommonModule,
@@ -28,11 +33,14 @@ import { createuser } from './components/adduser/AddUser.component'
             { path: 'home', component: HomeComponent },
             { path: 'fetch-user', component: FetchUserComponent },
             { path: 'register-user', component: createuser },
-            { path: 'user/edit/:id', component: createuser},
+            { path: 'user/edit/:id', component: createuser },
+            { path: 'fetch-car', component: FetchCarComponent },
+            { path: 'register-car', component: createcar },
+            { path: 'car/edit/:id', component: createcar },
             { path: '**', redirectTo: 'home' }
         ])
     ],
-    providers: [UserService]
+    providers: [UserService, CarService]
 })
 export class AppModuleShared {
 }

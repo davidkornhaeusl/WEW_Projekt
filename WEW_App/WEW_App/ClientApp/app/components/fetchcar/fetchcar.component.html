@@ -1,0 +1,37 @@
+﻿<h1>Fahrzeugdaten</h1>
+<p *ngIf="!carList"><em>Liste wird geladen...</em></p>
+<p>
+    <a [routerLink]="['/register-car']">Neues Fahrzeug erstellen:</a>
+</p>
+
+<div>
+    <table class='table' *ngIf="userList">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Make</th>
+                <th>Modell</th>
+                <th>Baujahr</th>
+                <th>Nummernschild</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of carList">
+                <td>{{ car.id }}</td>
+                <td>{{ car.brand }}</td>
+                <td>{{ car.type }}</td>
+                <td>{{ car.year }}</td>
+                <td>{{ car.plate }}</td>
+                <td>
+                <td>
+                    <a [routerLink]="['/car/edit/', car.id]">Bearbeiten</a> |
+                    <a [routerLink]="" (click)="delete(car.id)">Löschen</a> |
+                    <a [routerLink]="" (click)="updatePlate(car.id)">Nummernschild erfassen</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="text-align: center;">
+        <img src="../../../../Resources/AllData.png"   style="width:50%"/>
+    </div>
+</div>
