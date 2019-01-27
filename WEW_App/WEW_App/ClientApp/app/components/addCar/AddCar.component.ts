@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { CarService } from '../../services/carservice.service';
 
 @Component({
-    selector: 'creatcar',
+    selector: 'createcar',
     templateUrl: './AddCar.component.html',
     styleUrls: ['./AddCar.component.css']
 })
