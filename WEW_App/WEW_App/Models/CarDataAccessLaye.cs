@@ -99,7 +99,7 @@ namespace UserAdminApp.Models
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    string sqlQuery = "UPDATE CARS SET PLATE= " + plate + " WHERE ID= " + id;
+                    string sqlQuery = "UPDATE CARS SET PLATE= '" + plate + "' WHERE ID= " + id + ";";
                     SqlCommand cmd = new SqlCommand(sqlQuery, con);
                     con.Open();
                     SqlDataReader rdr = cmd.ExecuteReader();

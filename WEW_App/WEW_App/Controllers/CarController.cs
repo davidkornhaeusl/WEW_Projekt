@@ -7,48 +7,49 @@ namespace UserAdminApp.Controllers
 {
     public class CarController : Controller
     {
-        CarDataAccessLayer objUser = new CarDataAccessLayer();
+        CarDataAccessLayer objCar = new CarDataAccessLayer();
 
         [HttpGet("[action]")]
         [Route("api/Car/Index")]
         public IEnumerable<Car> Index()
         {
-            return objUser.GetAllCars();
+            return objCar.GetAllCars();
         }
 
         [HttpPost]
         [Route("api/Car/Create")]
         public int Create([FromBody] Car car)
         {
-            return objUser.AddCar(car);
+            return objCar.AddCar(car);
         }
 
         [HttpGet]
         [Route("api/Car/Details/{id}")]
         public Car Details(int id)
         {
-            return objUser.GetCarData(id);
+            return objCar.GetCarData(id);
         }
 
         [HttpPut]
         [Route("api/Car/Edit")]
         public int Edit([FromBody]Car car)
         {
-            return objUser.UpdateCar(car);
+            return objCar.UpdateCar(car);
         }
 
         [HttpPut]
         [Route("api/Car/Plate")]
-        public int UpdatePlate([FromBody]Car car)
+        public int UpdatePlate(string Plate, int Id)
         {
-            return objUser.UpdatePlate(car.Plate, car.Id);
+            return objCar.UpdatePlate(Plate, Id);
         }
 
         [HttpDelete]
         [Route("api/Car/Delete/{id}")]
         public int Delete(int id)
         {
-            return objUser.DeleteCar(id);
+            return objCar.DeleteCar(id);
         }
+        
     }
 }

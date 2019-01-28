@@ -12,7 +12,6 @@
                 <th>Make</th>
                 <th>Modell</th>
                 <th>Baujahr</th>
-                <th>Nummernschild</th>
             </tr>
         </thead>
         <tbody>
@@ -21,21 +20,19 @@
                 <td>{{ car.brand }}</td>
                 <td>{{ car.type }}</td>
                 <td>{{ car.year }}</td>
-                <td>{{ car.plate }}</td>
                 <td>
                 <td>
                     <a [routerLink]="['/car/edit/', car.id]">Bearbeiten</a> |
                     <a [routerLink]="" (click)="delete(car.id)">Löschen</a> |
-                    <a [routerLink]="" (click)="enablePlate(car.id)">Nummernschild erfassen</a>
+                    <a [routerLink]="" (click)="enablePlate(car.id, car.plate)">Nummernschild anzeigen</a>
                 </td>
             </tr>
         </tbody>
     </table>
     <div *ngIf="entry_plate">
-        Nummernschild erfassen <br />
-        <input placeholder="{{id}}"/> <a [routerLink]="" (click)="updatePlate()">Bestätigen</a>
+        <h3>Nummernschild</h3> <br />
+        <h4>{{plate}}</h4><br />
+        <a [routerLink]="" (click)="disablePlate()">Nummernschild verbergen</a>
     </div>
-    <div style="text-align: center;">
-        <img src="../../../../Resources/AllData.png"   style="width:50%"/>
-    </div>
+    
 </div>

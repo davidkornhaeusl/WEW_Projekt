@@ -45,16 +45,24 @@ export class FetchCarComponent {
         }
     }
 
-    enablePlate(id) {
-        this.entry_plate = true; 
+    enablePlate(id, plate) {
+        this.entry_plate = true;
+        this.plate = plate
+        this.id = id;
+    }
+
+    disablePlate(id, plate) {
+        this.entry_plate = false;
+        this.plate = plate
         this.id = id;
     }
 
     updatePlate() {
-        this.carService.updateCar(this.carForm.value)
+        this.carService.updatePlate(this.plate, this.id)
             .subscribe((data) => {
                 this.router.navigate(['/fetch-car']);
-            }, error => this.errorMessage = error)
+            }, error => this.errorMessage = error);
+        this.entry_plate = false;
     }
     
 }
