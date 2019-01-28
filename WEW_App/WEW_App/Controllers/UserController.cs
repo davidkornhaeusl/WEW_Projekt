@@ -16,6 +16,14 @@ namespace UserAdminApp.Controllers
             return objUser.GetAllUsers();
         }
 
+        [HttpGet]
+        [Route("api/User/CarDetails/{id}")]
+        public User CarDetails(int id)
+        {
+            return objUser.GetCarDetails(id);
+        }
+
+
         [HttpPost]
         [Route("api/User/Create")]
         public int Create([FromBody] User User)

@@ -8,8 +8,13 @@ import { UserService } from '../../services/userservice.service'
     styleUrls: ['./fetchuser.component.css']
 })
 
+
+
 export class FetchUserComponent {
     public userList: UserData[];
+    public selectedUser: UserData;
+    public selectedTmpUser: UserData;
+    public showCar: boolean = false;
 
     constructor(public http: Http, private _userService: UserService) {
         this.getUser();
@@ -22,11 +27,11 @@ export class FetchUserComponent {
     }
 
     delete(userID) {
-        var ans = confirm("Benutzer mit der Id: " + userID +" löschen");
+        var ans = confirm("Benutzer mit der Id: " + userID + " löschen");
         if (ans) {
             this._userService.deleteUser(userID).subscribe((data) => {
                 this.getUser();
-            }, error => console.error(error)) 
+            }, error => console.error(error))
         }
     }
 
@@ -38,12 +43,32 @@ export class FetchUserComponent {
             }, error => console.error(error))
         }
     }
-}
 
-interface UserData {
-    id: number;
-    name: string;
-    gender: string;
-    department: string;
-    city: string;
+    add(userID) {
+        this._userService.getUserById(userID).subscribe(
+            data => {
+                this.selectedTmpUser = data;
+            }, error => alert(error))
+
+        if (this.selectedTmpUser != null) {
+            if (this.showCar) {
+                if ((this.selectedUser.id == this.selectedTmpUser.id)) this.showCar = false;
+                else {
+                    if (this.selectedTmpUser != null) this.selectedUser = this.selectedTmpUser;
+                    else this.showCar = false;
+                }
+            }
+            else {
+
+                this.selectedUser = this.selectedTmpUser;
+
+                if (this.selectedUser != null) {
+                    this.showCar = true;
+                }
+                else {
+                    this.showCar = false;
+                }
+            }
+        }
+    }
 }

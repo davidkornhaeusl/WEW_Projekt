@@ -43,7 +43,13 @@ export class UserService {
             .map((response: Response) => response.json())
             .catch(this.errorHandler);
     }
-   
+
+    getCarById(id: number) {
+        return this._http.get(this._baseUrl + "api/User/CarDetails/" + id)
+            .map((response: Response) => response.json())
+            .catch(this.errorHandler)
+    }
+
     sendMail(mail) {
         return this._http.get(this._baseUrl + "api/User/Send/" + mail)
             .map((response: Response) => response.json())

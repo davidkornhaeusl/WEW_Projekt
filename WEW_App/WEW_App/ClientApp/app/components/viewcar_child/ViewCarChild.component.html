@@ -1,0 +1,13 @@
+﻿<form style="padding:20px;" [ngStyle]="{'background-color':'#F1F1F1' }" [formGroup]="userForm" #formDir="ngForm" novalidate>
+
+    <div style="color:black;" class="form-group row">
+        <h3>Name: {{item.firstname}} - {{item.lastname}}</h3>
+        <h3>Nummertafel: {{carItem.car_number}}</h3>
+        <h3>Automarke {{carItem.label}}</h3>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn" (click)="delete()">Auto freigeben</button>
+        <button type="submit" class="btn" (click)="generate()">Report generieren</button>
+    </div>
+</form>

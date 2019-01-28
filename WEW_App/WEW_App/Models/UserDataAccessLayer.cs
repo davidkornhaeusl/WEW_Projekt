@@ -72,6 +72,21 @@ namespace UserAdminApp.Models
             }
         }
 
+        public User GetCarDetails(int cardId)
+        {
+            try
+            {
+                User lstuser = new User();
+                /////////qöfewgharöfehatdhjq
+
+                return lstuser;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         public int UpdateUser(User user)
         {
             try
@@ -154,7 +169,7 @@ namespace UserAdminApp.Models
         {
             try
             {
-                
+
                 SmtpClient client = new SmtpClient();
                 client.Port = 587;
                 client.Host = "smtp.gmail.com";
